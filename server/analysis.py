@@ -18,5 +18,27 @@ FROM public.assessed_parcels;
 
 gdf = gpd.read_postgis(sql_query, engine, geom_col="geom") 
 
-print(gdf.head()) 
-print("CRS:", gdf.crs) 
+#print(gdf.head()) 
+#print("CRS:", gdf.crs) 
+
+## SPATIAL WEIGHTS
+from spatial_weights import contiguity_weights, knn_weights, distance_weights 
+#Place this import at the top of your file with the other imports 
+
+w = distance_weights(gdf) 
+
+print("Neighbors:", w.neighbors) 
+
+from spatial_weights import contiguity_weights, knn_weights, distance_weights 
+#Place this import at the top of your file with the other imports 
+
+w = knn_weights(gdf) 
+
+print("Neighbors:", w.neighbors) 
+
+from spatial_weights import contiguity_weights, knn_weights, distance_weights 
+#Place this import at the top of your file with the other imports 
+
+w = contiguity_weights(gdf) 
+
+print("Neighbors:", w.neighbors)
