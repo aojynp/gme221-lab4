@@ -5,6 +5,7 @@ from visualization import visualize_neighbors
 from moran import calculate_global_morans_I
 from esda.moran import Moran_Local
 import os
+from visualization import visualize_local_moran 
 
 host = "localhost" 
 port = "5433" 
@@ -56,10 +57,11 @@ gdf["cluster"] = "Not Significant"
 gdf.loc[(gdf["local_I"] > 0) & (gdf["p_value"] < 0.05), "cluster"] = "Hotspot" 
 gdf.loc[(gdf["local_I"] < 0) & (gdf["p_value"] < 0.05), "cluster"] = "Coldspot" 
 
-os.makedirs("output", exist_ok=True) 
-gdf.to_file( 
-    "output/spatial_clusters.geojson", 
-    driver="GeoJSON" 
-) 
-print("Saved: output/spatial_clusters.geojson") 
+#os.makedirs("output", exist_ok=True) 
+#gdf.to_file( 
+    #"output/spatial_clusters.geojson", 
+    #driver="GeoJSON" 
+#) 
+#print("Saved: output/spatial_clusters.geojson") 
 
+visualize_local_moran(gdf)
