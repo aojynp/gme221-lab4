@@ -49,6 +49,7 @@ Result of a spatial autocorrelation analysis is highly sensitive to the specific
 Moran’s I fundamentally requires both a spatial weights matrix and an attribute variable because it measures the correlation between a location’s value and the values of its neighbors. The spatial weights matrix serves as a map for the statistical analysis, establishing the geographic structure by identifying which units are officially considered neighbors based on shared boundaries or proximity. Without this matrix, the model has no way of knowing which data points are adjacent. Conversely, the attribute variable provides the "content" for the analysis, offering the actual numerical values within that are being compared across that geographic structure.Moran’s I essentially overlaps geographic structure with data values to determine if locations that are "neighbors" (spatial weights) also share similar characteristics or the attributes. Without the spatial weights matrix, there are data points with no locational context, and without the attribute, there will only be a map with nothing to analyze. By integrating both, the statistic can distinguish between a meaningful spatial pattern and a purely random distribution of values.
 
 --------------------------------------------------------------------------------------------------------
-3. # Compute Local Moran’s I
+3. #  Spatial Autocorrelation
+
 
 
